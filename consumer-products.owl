@@ -1,0 +1,521 @@
+@prefix : <http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle> .
+
+<http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle> rdf:type owl:Ontology ;
+                                                                     rdfs:comment "This is an ontology about consumer products"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#hasBase
+:hasBase rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :InstantNoodle ;
+         rdfs:range :InstantNoodlePackaging .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#hasCountryOfOrigin
+:hasCountryOfOrigin rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#hasSeasoning
+:hasSeasoning rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :InstantNoodle ;
+              rdfs:range :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#hasSpiciness
+:hasSpiciness rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Asia
+:Asia rdf:type owl:Class ;
+      rdfs:subClassOf :Country .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#CheeseSeasoning
+:CheeseSeasoning rdf:type owl:Class ;
+                 rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Country
+:Country rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#CuisineSeasoning
+:CuisineSeasoning rdf:type owl:Class ;
+                  rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Europe
+:Europe rdf:type owl:Class ;
+        rdfs:subClassOf :Country .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#FriedNoodle
+:FriedNoodle rdf:type owl:Class ;
+             rdfs:subClassOf :InstantNoodle ;
+             owl:disjointWith :SoupNoodle .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#InstantNoodle
+:InstantNoodle rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasBase ;
+                                 owl:someValuesFrom :InstantNoodlePackaging
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasSeasoning ;
+                                 owl:someValuesFrom :InstantNoodleSeasoning
+                               ] .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#InstantNoodlePackaging
+:InstantNoodlePackaging rdf:type owl:Class ;
+                        owl:disjointWith :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#InstantNoodleSeasoning
+:InstantNoodleSeasoning rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#MeatSeasoning
+:MeatSeasoning rdf:type owl:Class ;
+               rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#MiscellaneousSeasoning
+:MiscellaneousSeasoning rdf:type owl:Class ;
+                        rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#MushroomSeasoning
+:MushroomSeasoning rdf:type owl:Class ;
+                   rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#NorthAmerica
+:NorthAmerica rdf:type owl:Class ;
+              rdfs:subClassOf :Country .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#SeaFoodSeasoning
+:SeaFoodSeasoning rdf:type owl:Class ;
+                  rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#SoupNoodle
+:SoupNoodle rdf:type owl:Class ;
+            rdfs:subClassOf :InstantNoodle .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#SouthAmerica
+:SouthAmerica rdf:type owl:Class ;
+              rdfs:subClassOf :Country .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Spiciness
+:Spiciness rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#VegetableSeasoning
+:VegetableSeasoning rdf:type owl:Class ;
+                    rdfs:subClassOf :InstantNoodleSeasoning .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Argentina
+:Argentina rdf:type owl:NamedIndividual ,
+                    :SouthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#BeanSprout
+:BeanSprout rdf:type owl:NamedIndividual ,
+                     :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Beef
+:Beef rdf:type owl:NamedIndividual ,
+               :MeatSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Brazil
+:Brazil rdf:type owl:NamedIndividual ,
+                 :SouthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Bulgogi
+:Bulgogi rdf:type owl:NamedIndividual ,
+                  :CuisineSeasoning ;
+         :hasCountryOfOrigin :Korea ;
+         :hasSpiciness :Medium .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#BulgogiNoodle
+:BulgogiNoodle rdf:type owl:NamedIndividual ,
+                        :FriedNoodle ;
+               :hasBase :Packet ;
+               :hasSeasoning :Bulgogi .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Canada
+:Canada rdf:type owl:NamedIndividual ,
+                 :NorthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Cheddar
+:Cheddar rdf:type owl:NamedIndividual ,
+                  :CheeseSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Chiken
+:Chiken rdf:type owl:NamedIndividual ,
+                 :MeatSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#ChikenCurryNoodle
+:ChikenCurryNoodle rdf:type owl:NamedIndividual ,
+                            :SoupNoodle ;
+                   :hasBase :Cup ;
+                   :hasSeasoning :Curry .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#ChikenOnionNoodle
+:ChikenOnionNoodle rdf:type owl:NamedIndividual ,
+                            :SoupNoodle ;
+                   :hasBase :Cup ;
+                   :hasSeasoning :Chiken ,
+                                 :Onion ;
+                   :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Chile
+:Chile rdf:type owl:NamedIndividual ,
+                :SouthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#China
+:China rdf:type owl:NamedIndividual ,
+                :Asia .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Colombia
+:Colombia rdf:type owl:NamedIndividual ,
+                   :SouthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Crab
+:Crab rdf:type owl:NamedIndividual ,
+               :SeaFoodSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Cup
+:Cup rdf:type owl:NamedIndividual ,
+              :InstantNoodlePackaging .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Curry
+:Curry rdf:type owl:NamedIndividual ,
+                :CuisineSeasoning ;
+       :hasCountryOfOrigin :India ;
+       :hasSpiciness :Medium .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Ecuador
+:Ecuador rdf:type owl:NamedIndividual ,
+                  :SouthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Enoki
+:Enoki rdf:type owl:NamedIndividual ,
+                :MushroomSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#France
+:France rdf:type owl:NamedIndividual ,
+                 :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Germany
+:Germany rdf:type owl:NamedIndividual ,
+                  :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#GreenOnion
+:GreenOnion rdf:type owl:NamedIndividual ,
+                     :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#GrilledChikenNoodle
+:GrilledChikenNoodle rdf:type owl:NamedIndividual ,
+                              :FriedNoodle ;
+                     :hasBase :Packet ;
+                     :hasSeasoning :Chiken ;
+                     :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Hot
+:Hot rdf:type owl:NamedIndividual ,
+              :Spiciness .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#India
+:India rdf:type owl:NamedIndividual ,
+                :Asia .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Indonesia
+:Indonesia rdf:type owl:NamedIndividual ,
+                    :Asia .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Ireland
+:Ireland rdf:type owl:NamedIndividual ,
+                  :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Italy
+:Italy rdf:type owl:NamedIndividual ,
+                :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Japan
+:Japan rdf:type owl:NamedIndividual ,
+                :Asia .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Korea
+:Korea rdf:type owl:NamedIndividual ,
+                :Asia .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Leek
+:Leek rdf:type owl:NamedIndividual ,
+               :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Lobster
+:Lobster rdf:type owl:NamedIndividual ,
+                  :SeaFoodSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#MacNCheese
+:MacNCheese rdf:type owl:NamedIndividual ,
+                     :CuisineSeasoning ;
+            :hasCountryOfOrigin :USA ;
+            :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Maitake
+:Maitake rdf:type owl:NamedIndividual ,
+                  :MushroomSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Medium
+:Medium rdf:type owl:NamedIndividual ,
+                 :Spiciness .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Menma
+:Menma rdf:type owl:NamedIndividual ,
+                :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Mexico
+:Mexico rdf:type owl:NamedIndividual ,
+                 :NorthAmerica .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Mild
+:Mild rdf:type owl:NamedIndividual ,
+               :Spiciness .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Mozzarella
+:Mozzarella rdf:type owl:NamedIndividual ,
+                     :CheeseSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Netherlands
+:Netherlands rdf:type owl:NamedIndividual ,
+                      :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Onion
+:Onion rdf:type owl:NamedIndividual ,
+                :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Original
+:Original rdf:type owl:NamedIndividual ,
+                   :MiscellaneousSeasoning ;
+          :hasSpiciness :Medium .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Packet
+:Packet rdf:type owl:NamedIndividual ,
+                 :InstantNoodlePackaging .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#PaellaValenciana
+:PaellaValenciana rdf:type owl:NamedIndividual ,
+                           :CuisineSeasoning ;
+                  :hasCountryOfOrigin :Spain ;
+                  :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Parmesan
+:Parmesan rdf:type owl:NamedIndividual ,
+                   :CheeseSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Pizza
+:Pizza rdf:type owl:NamedIndividual ,
+                :CuisineSeasoning ;
+       :hasCountryOfOrigin :Italy ;
+       :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Rendang
+:Rendang rdf:type owl:NamedIndividual ,
+                  :CuisineSeasoning ;
+         :hasCountryOfOrigin :Indonesia ;
+         :hasSpiciness :Medium .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#RendangNoodle
+:RendangNoodle rdf:type owl:NamedIndividual ,
+                        :FriedNoodle ;
+               :hasBase :Packet ;
+               :hasSeasoning :Rendang .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Salmon
+:Salmon rdf:type owl:NamedIndividual ,
+                 :SeaFoodSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Schnitzel
+:Schnitzel rdf:type owl:NamedIndividual ,
+                    :CuisineSeasoning ;
+           :hasCountryOfOrigin :Germany ;
+           :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Seaweed
+:Seaweed rdf:type owl:NamedIndividual ,
+                  :SeaFoodSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#SeaweedNoodle
+:SeaweedNoodle rdf:type owl:NamedIndividual ,
+                        :SoupNoodle ;
+               :hasBase :Cup ;
+               :hasSeasoning :Seaweed ;
+               :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Shiitake
+:Shiitake rdf:type owl:NamedIndividual ,
+                   :MushroomSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Shrimp
+:Shrimp rdf:type owl:NamedIndividual ,
+                 :SeaFoodSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Spain
+:Spain rdf:type owl:NamedIndividual ,
+                :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#SpicyFriedNoodle
+:SpicyFriedNoodle rdf:type owl:NamedIndividual ,
+                           :FriedNoodle ;
+                  :hasBase :Packet ;
+                  :hasSeasoning :SpicySeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#SpicySeasoning
+:SpicySeasoning rdf:type owl:NamedIndividual ,
+                         :MiscellaneousSeasoning ;
+                :hasSpiciness :Hot .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Spinach
+:Spinach rdf:type owl:NamedIndividual ,
+                  :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Teriyaki
+:Teriyaki rdf:type owl:NamedIndividual ,
+                   :CuisineSeasoning ;
+          :hasCountryOfOrigin :Japan ;
+          :hasSpiciness :Mild .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#TeriyakiSalmonNoodle
+:TeriyakiSalmonNoodle rdf:type owl:NamedIndividual ,
+                               :SoupNoodle ;
+                      :hasBase :Cup ;
+                      :hasSeasoning :Salmon ,
+                                    :Teriyaki .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Thailand
+:Thailand rdf:type owl:NamedIndividual ,
+                   :Asia .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Tomato
+:Tomato rdf:type owl:NamedIndividual ,
+                 :VegetableSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#Tuna
+:Tuna rdf:type owl:NamedIndividual ,
+               :SeaFoodSeasoning .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#UK
+:UK rdf:type owl:NamedIndividual ,
+             :Europe .
+
+
+###  http://www.semanticweb.org/alif/ontologies/2022/11/instant-noodle#USA
+:USA rdf:type owl:NamedIndividual ,
+              :NorthAmerica .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Asia
+                :Europe
+                :NorthAmerica
+                :SouthAmerica
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
